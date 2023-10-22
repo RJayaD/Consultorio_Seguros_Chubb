@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <h2 class="text-center">Carga masiva de Seguros</h2>
+  </div>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="inputGroupFileAddon01">Cargar TXT</span>
+    </div>
+    <div class="custom-file">
+
+      <input class="custom-file-input" aria-describedby="inputGroupFileAddon01" #fileUploadSimple [accept]="'.csv'" id="inputGroupFile01" type="file" class="file-input" (change)="importDataFromTxt($event)"
+        hidden="true" />
+      <label class="custom-file-label" for="inputGroupFile01">Carga Archivo</label>
+    </div>
+  </div>
+  <div class="d-flex justify-content-around" *ngIf="seguros.length > 0">
+    <button class="btn btn-danger" (click)="limpiar()">Limpiar</button>
+    <button class="btn btn-danger">Guardar</button>
+  </div>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Nombre del Seguro</th>
+        <th>Código del Seguro</th>
+        <th>Suma Asegurada</th>
+        <th>Prima</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let seguro of seguros">
+        <td>{{ seguro.nombreSeguro }}</td>
+        <td>{{ seguro.codigo }}</td>
+        <td>{{ seguro.suma }}</td>
+        <td>{{ seguro.prima }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

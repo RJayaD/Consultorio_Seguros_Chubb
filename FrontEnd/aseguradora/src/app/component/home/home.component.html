@@ -1,0 +1,33 @@
+<div class="container">
+  <h2 class="text-center">
+    Bienvenido a Consultorio de Seguros
+  </h2>
+  <div class="d-flex justify-content-around ">
+    <p>Consultar Información</p>
+    <label for="searchBox"></label>
+    <input id="searchBox" (keyup)="Buscar($event)" class="form-control" [(ngModel)]="filtro" placeholder="Escribir aqui Cédula, Código del Seguro o Nombre del Cliente " />
+  </div>
+
+  <div class="table-responsive-md">
+  <table class="table table-bordered">
+    <thead class="p-3 mb-2 bg-primary text-white">
+      <tr>
+        <th>Nombre del Cliente</th>
+        <th>Nombre del Seguro</th>
+        <th>Codigo</th>
+        <th>Telefono</th>
+        <th>Edad</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let segurocliente of seguroclientes">
+        <td>{{ segurocliente.nombreCliente }}</td>
+        <td>{{ segurocliente.nombreSeguro }}</td>
+        <td>{{ segurocliente.codigo }}</td>
+        <td>{{ segurocliente.telefono }}</td>
+        <td>{{ segurocliente.edad }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>

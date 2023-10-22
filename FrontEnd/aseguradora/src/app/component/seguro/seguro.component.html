@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <h2 class="text-center">Ingrese datos del seguro</h2>
+      <form [formGroup]="seguroForm" (ngSubmit)="submitForm()">
+        <div class="form-group">
+          <label for="nombreSeguro">Nombre del Seguro</label>
+          <input type="text" class="form-control" id="NombreSeguro" formControlName="nombre_seguro"
+            [(ngModel)]="this.seguro.NombreSeguro" placeholder="Ingrese el nombre del seguro">
+        </div>
+        <div class="form-group">
+          <label for="codigoSeguro">Código del Seguro</label>
+          <input type="text" class="form-control" id="Codigo" (keyup)="validaNumero($event)"
+            [(ngModel)]="this.seguro.Codigo" formControlName="codigo" placeholder="Ingrese el código del seguro">
+
+          <div *ngIf="banNummeros" class="alert alert-danger" role="alert">
+            Por favor, ingresa solo números.
+          </div>
+        </div>
+          <div class="form-group">
+            <label *ngIf="mostrarCampo" for="fecha_creacion">Fecha de Creacion</label>
+            <input *ngIf="mostrarCampo" type="text" class="form-control" id="fecha_creacion" formControlName="fecha_creacion" [readonly]="true"
+              placeholder="Ingrese fecha de registro">
+          </div>
+        <div class="form-group">
+          <label for="sumaAsegurada">Suma Asegurada</label>
+          <input type="number" class="form-control" [(ngModel)]="this.seguro.Suma" id="suma" min="0"
+            formControlName="suma" placeholder="Ingrese la suma asegurada">
+        </div>
+        <div class="form-group">
+          <label for="prima">Prima</label>
+          <input type="number" class="form-control" min="0" id="Prima" [(ngModel)]="this.seguro.Prima"
+            formControlName="prima" placeholder="Ingrese la prima">
+        </div>
+        <button type="submit" class="btn btn-primary" [innerText]="this.txtbt"
+          ></button>
+      </form>
+
+    </div>
+  </div>
+</div>

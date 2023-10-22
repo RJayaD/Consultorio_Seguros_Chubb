@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* Estilos para el cuadro de diálogo personalizado */
+    .custom-alert {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #fff;
+      border: 1px solid #ccc;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+</head>
+
+<body>
+  <div id="customAlert" class="custom-alert" style="display: none;">
+    <h3>¡Mensaje de Alerta Personalizado!</h3>
+    <p>Este es un mensaje de alerta personalizado con diseño personalizado.</p>
+    <button id="closeAlertButton">Cerrar</button>
+  </div>
+
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div>
+          <h2 class="text-center">Ingrese datos del Asegurado</h2>
+        </div>
+        <form [formGroup]="AseguradoForm" (ngSubmit)="submitForm()">
+          <div class="form-group">
+            <label for="cedula">Cédula</label>
+            <input type="text" class="form-control" formControlName="cedula" (keyup)="validaNumeroC($event)" id="cedula"
+              [(ngModel)]="this.asegurado.cedula" name="cedula" placeholder="Ingrese la cédula">
+              <div *ngIf="banNummeros" class="alert alert-danger" role="alert">
+                Por favor, ingresa solo números.
+              </div>
+            </div>
+          <div class="form-group">
+            <label for="nombre_cliente">Nombre</label>
+            <input type="text" class="form-control" id="nombre_cliente" formControlName="nombre_cliente"
+              [(ngModel)]="this.asegurado.nombre_cliente" placeholder="Ingrese el nombre">
+          </div>
+          <div class="form-group">
+            <label *ngIf="mostrarCampo" for="fecha_creacion">Fecha de Creacion</label>
+            <input *ngIf="mostrarCampo" type="text" class="form-control" id="fecha_creacion"
+              formControlName="fecha_creacion" placeholder="Ingrese fecha de registro" [readonly]="true">
+          </div>
+          <div class="form-group">
+            <label for="telefono">Número de Teléfono</label>
+            <input type="tel" class="form-control" id="telefono" formControlName="telefono" (keyup)="validaNumeroT($event)"
+              [(ngModel)]="this.asegurado.telefono" placeholder="Ingrese el número de teléfono">
+              <div *ngIf="banNummeros" class="alert alert-danger" role="alert">
+                Por favor, ingresa solo números.
+              </div>
+            </div>
+          <div class="form-group">
+            <label for="edad">Edad</label>
+            <input type="number" min="0" class="form-control" formControlName="edad" id="edad"
+              [(ngModel)]="this.asegurado.edad">
+          </div>
+          <button type="submit" class="btn btn-primary" [innerText]="this.txtbt"></button>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

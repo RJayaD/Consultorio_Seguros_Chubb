@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <h2 class="text-center">Carga masiva de Asegurados</h2>
+  </div>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="inputGroupFileAddon01">Cargar .txt </span>
+    </div>
+    <div class="custom-file">
+
+      <input class="custom-file-input" aria-describedby="inputGroupFileAddon01" #fileUploadSimple [accept]="'.txt'" id="inputGroupFile01" type="file" class="file-input" (change)="importDataFromTxt($event)"
+        hidden="true" />
+      <label class="custom-file-label" for="inputGroupFile01">Carga Archivo</label>
+    </div>
+  </div>
+  <div class="d-flex justify-content-around" *ngIf="asegurados.length > 0">
+    <button class="btn btn-danger" (click)="limpiar()">Limpiar</button>
+    <button class="btn btn-danger" (click)="Guardar($event)">Guardar</button>
+  </div>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Cédula</th>
+        <th>Nombre</th>
+        <th>Fecha de Creación</th>
+        <th>Teléfono</th>
+        <th>Edad</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let asegurado of asegurados">
+        <td>{{ asegurado.cedula }}</td>
+        <td>{{ asegurado.nombre_cliente }}</td>
+        <td>{{ asegurado.fecha_creacion }}</td>
+        <td>{{ asegurado.telefono }}</td>
+        <td>{{ asegurado.edad }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,43 @@
+<div class="container">
+  <h2 class="text-center">Lista de Asegurados</h2>
+  <div class="d-flex justify-content-around ">
+    <button class="btn btn-primary" (click)="nuevoAsegurado()">Nuevo</button>
+    <button class="btn btn-primary" (click)="masivoAsegurado()">Carga Masiva</button>
+  </div>
+
+  <div *ngIf="asegurados && asegurados.length > 0">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Cédula</th>
+          <th>Nombre de Cliente</th>
+          <th>Fecha de Registro</th>
+          <th>Teléfono</th>
+          <th>Edad</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let asegurado of asegurados">
+          <td>{{ asegurado.aseguradoId }}</td>
+          <td>{{ asegurado.cedula }}</td>
+          <td>{{ asegurado.nombre_cliente }}</td>
+          <td>{{ asegurado.fecha_creacion }}</td>
+          <td>{{ asegurado.telefono }}</td>
+          <td>{{ asegurado.edad }}</td>
+          <td>
+            <button class="btn btn-primary" (click)="editarAsegurado(asegurado)">Editar</button>
+            <button class="btn btn-danger" (click)="eliminarAsegurado(asegurado)">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+
+    </table>
+  </div>
+</div>
+<div class="d-flex justify-content-around " *ngIf="asegurados && asegurados.length === 0">
+  <!-- Mostrar mensaje cuando no hay datos -->
+  <p>Sin datos por mostrar, dar clic en Nuevo o Carga Masiva </p>
+</div>

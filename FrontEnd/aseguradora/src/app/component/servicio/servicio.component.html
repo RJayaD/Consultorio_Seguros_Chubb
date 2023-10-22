@@ -1,0 +1,82 @@
+<div class="container-fluid">
+    <div class="d-flex ">
+        <div class="d-flex flex-column w-50">
+            <div>
+                <div class="form-group">
+                    <label for="searchBox">Ingrese Código o Nombre del Seguro a buscar:</label>
+                    <input id="searchBox" (keyup)="Buscar($event)" class="form-control" [(ngModel)]="filtro" placeholder="Escribir aqui " />
+                  </div>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Nombre del Seguro</th>
+                            <th>Código del Seguro</th>
+                            <th>Prima</th>
+                            <th>Suma</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let seguro of seguros">
+                            <td>{{ seguro.seguroId }}</td>
+                            <td>{{ seguro.nombre_seguro }}</td>
+                            <td>{{ seguro.codigo }}</td>
+                            <td>{{ seguro.suma }}</td>
+                            <td>{{ seguro.prima }}</td>
+                            <td>
+                                <button class="btn btn-primary" (click)="SelectSeguro(seguro)">Seleccionar</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="form-group">
+                <label for="txtBusq">Ingrese Cédula o Nombre del Cliente al Buscar:</label>
+                <input type="text" (keyup)="BuscarAsegurado($event)" class="form-control" [(ngModel)]="filtroAseg" id="txtBusq" placeholder="Ingresa tu nombre">
+            </div>
+            <div>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Cédula</th>
+                            <th>Nombre de Cliente</th>
+                            <th>Teléfono</th>
+                            <th>Edad</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let asegurado of asegurados">
+                            <td>{{ asegurado.aseguradoId }}</td>
+                            <td>{{ asegurado.cedula }}</td>
+                            <td>{{ asegurado.nombre_cliente }}</td>
+                            <td>{{ asegurado.telefono }}</td>
+                            <td>{{ asegurado.edad }}</td>
+                            <td>
+                                <button class="btn btn-primary" (click)="SelectAsegurado(asegurado)">Seleccionar</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="w-50">
+            <div class="container">
+                <form [formGroup]="SeguroClienteForm">
+                    <div class="form-group">
+                        <label for="SeguroId">ID del Seguro</label>
+                        <input type="text" class="form-control" formControlName="SeguroId" name = "SeguroId" id="SeguroId" [readonly]="true" value="">
+                        
+                    </div>
+                    <div class="form-group">
+                        <label for="AseguradoId">ID del Cliente</label>
+                        <input type="text" class="form-control" formControlName="AseguradoId" name="AseguradoId" id="AseguradoId" [readonly]="true" value="">
+                    </div>
+                    <button type="submit" (click)="contratar()" class="btn btn-primary" >Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

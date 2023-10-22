@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Consultorio_Seguros_Chubb.props" />
+</Project>
