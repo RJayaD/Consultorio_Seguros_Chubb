@@ -34,7 +34,7 @@
             <label for="cedula">Cédula</label>
             <input type="text" class="form-control" formControlName="cedula" (keyup)="validaNumeroC($event)" id="cedula"
               [(ngModel)]="this.asegurado.cedula" name="cedula" placeholder="Ingrese la cédula">
-              <div *ngIf="banNummeros" class="alert alert-danger" role="alert">
+              <div *ngIf="banNumerosCedula" class="alert alert-danger" role="alert">
                 Por favor, ingresa solo números.
               </div>
             </div>
@@ -52,7 +52,7 @@
             <label for="telefono">Número de Teléfono</label>
             <input type="tel" class="form-control" id="telefono" formControlName="telefono" (keyup)="validaNumeroT($event)"
               [(ngModel)]="this.asegurado.telefono" placeholder="Ingrese el número de teléfono">
-              <div *ngIf="banNummeros" class="alert alert-danger" role="alert">
+              <div *ngIf="banNumerosTelefono" class="alert alert-danger" role="alert">
                 Por favor, ingresa solo números.
               </div>
             </div>

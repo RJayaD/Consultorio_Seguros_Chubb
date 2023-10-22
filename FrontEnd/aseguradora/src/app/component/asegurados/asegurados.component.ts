@@ -12,7 +12,8 @@ import { AseguradosService } from 'src/app/services/asegurados.service';
 })
 export class AseguradosComponent implements OnInit{
 
-  banNummeros = false;
+  banNumerosCedula = false;
+  banNumerosTelefono = false;
   asegurado: Asegurado;
   aseguradoId: any;
   txtbt: string = "Registrar Asegurado";
@@ -107,10 +108,10 @@ export class AseguradosComponent implements OnInit{
   }
   validaNumeroT(even: any) {
     const dato = this.AseguradoForm.value;
-    this.banNummeros = !dato.telefono.split('').every((caracter: string) => !isNaN(Number(caracter)));
+    this.banNumerosTelefono = !dato.telefono.split('').every((caracter: string) => !isNaN(Number(caracter)));
   }
   validaNumeroC(even: any) {
     const dato = this.AseguradoForm.value;
-    this.banNummeros = !dato.cedula.split('').every((caracter: string) => !isNaN(Number(caracter)));
+    this.banNumerosCedula = !dato.cedula.split('').every((caracter: string) => !isNaN(Number(caracter)));
   }
 }

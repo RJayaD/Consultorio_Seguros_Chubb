@@ -569,11 +569,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\leone\\source\\repos\\Consultorio_Seguros_Chubb\\Consultorio_Seguros_Chubb.csproj",
+      "projectUniqueName": "C:\\Users\\leone\\source\\repos\\Consultorio_Seguros_Chubb\\BackEnd\\Consultorio_Seguros_Chubb\\Consultorio_Seguros_Chubb.csproj",
       "projectName": "Consultorio_Seguros_Chubb",
-      "projectPath": "C:\\Users\\leone\\source\\repos\\Consultorio_Seguros_Chubb\\Consultorio_Seguros_Chubb.csproj",
+      "projectPath": "C:\\Users\\leone\\source\\repos\\Consultorio_Seguros_Chubb\\BackEnd\\Consultorio_Seguros_Chubb\\Consultorio_Seguros_Chubb.csproj",
       "packagesPath": "C:\\Users\\leone\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\leone\\source\\repos\\Consultorio_Seguros_Chubb\\obj\\",
+      "outputPath": "C:\\Users\\leone\\source\\repos\\Consultorio_Seguros_Chubb\\BackEnd\\Consultorio_Seguros_Chubb\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\leone\\AppData\\Roaming\\NuGet\\NuGet.Config",
